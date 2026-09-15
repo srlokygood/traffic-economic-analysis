@@ -1,274 +1,105 @@
-🚦 Análisis de Movilidad Urbana y Desarrollo Económico
-📊 Resumen del proyecto
+# 🚦 Análisis de Tráfico y Desarrollo Económico
 
-Este proyecto analiza la relación entre la movilidad urbana y la productividad económica, utilizando indicadores de congestión y tiempos de viaje junto con el PIB per cápita de diferentes ciudades.
+## 📊 Descripción
 
-La pregunta central del análisis es:
+Este proyecto analiza la relación entre la **movilidad urbana** y la **productividad económica**, utilizando indicadores de congestión, tiempos de viaje y **PIB per cápita** de 15 ciudades de América Latina durante 2024.
 
-¿Qué relación existe entre la congestión y los tiempos de viaje en una ciudad y su nivel de productividad económica, medido mediante el PIB per cápita?
+### 🎯 Pregunta principal
 
-El objetivo es identificar patrones que permitan determinar si existen ciudades donde altos niveles de congestión y tiempos de desplazamiento se presentan junto con bajos niveles de PIB per cápita, lo que podría señalar oportunidades para priorizar inversiones en infraestructura y movilidad.
+> **¿Qué relación existe entre la congestión y los tiempos de viaje y la productividad económica de una ciudad, medida mediante el PIB per cápita?**
 
-🎯 Objetivos
-Objetivo principal
+El análisis busca identificar patrones que puedan aportar información para la **planificación urbana y la toma de decisiones sobre infraestructura y transporte**.
 
-Analizar la relación entre los indicadores de movilidad urbana y el PIB per cápita, identificando ciudades que presenten patrones relevantes de congestión y productividad económica.
+## 🔗 Análisis en Google Colab
 
-Objetivos específicos
-Analizar los niveles de congestión vehicular entre ciudades.
-Comparar los tiempos de viaje y desplazamiento.
-Analizar las diferencias de PIB per cápita entre ciudades.
-Integrar los datos de movilidad y economía mediante una unidad común de análisis.
-Identificar correlaciones entre congestión, tiempos de viaje y PIB per cápita.
-Detectar valores atípicos y comportamientos que requieran investigación adicional.
-Identificar ciudades potencialmente prioritarias para inversión en infraestructura de transporte.
-❓ Pregunta de análisis
+👉 **[Abrir análisis completo en Google Colab]([https://drive.google.com/file/d/12n1YDX1z2cLfxLnfoVdftz1QF2uq4hTl/view?usp=sharing](https://colab.research.google.com/drive/12n1YDX1z2cLfxLnfoVdftz1QF2uq4hTl#scrollTo=20efc079))**
 
-La investigación busca responder principalmente:
+## 🗃️ Datos
 
-¿Qué ciudad presenta la mayor correlación significativa entre altos niveles de congestión vehicular y bajos indicadores de productividad económica, sugiriendo que podría ser priorizada para inversión en infraestructura de transporte?
+Se integraron dos dimensiones:
 
-Se prestará especial atención a ciudades como:
+* 🚗 **Movilidad urbana:** congestión, tiempos de viaje, longitud y cantidad de atascos y `jams_delay`.
+* 💰 **Desarrollo económico:** PIB per cápita.
 
-🇨🇴 Bogotá
-🇵🇪 Lima
-🇦🇷 Buenos Aires
-🌎 Otras ciudades incluidas en el conjunto de datos
+El análisis comprende **15 ciudades de América Latina** durante 2024, utilizando **ciudad y año** como unidad de integración.
 
-La comparación no se limitará a estas ciudades, ya que se utilizará el conjunto completo de datos para identificar si existen otras ciudades con un patrón más significativo.
+## 🔎 Metodología
 
-🗃️ Datos utilizados
+1. Limpieza y estandarización de las variables.
+2. Conversión de fechas y variables numéricas.
+3. Agregación de los datos de tráfico por **ciudad, país y año**.
+4. Integración de las fuentes mediante un **INNER JOIN** utilizando `city` y `year`.
+5. Análisis exploratorio de distribuciones y valores atípicos.
+6. Visualización de la relación entre movilidad y PIB per cápita.
+7. Interpretación de patrones y posibles ciudades prioritarias.
 
-El análisis integra información de dos dimensiones principales:
+Se utilizaron histogramas, gráficos de dispersión y análisis de outliers para validar visualmente los resultados.
 
-🚗 Movilidad urbana
+## 📈 Principales hallazgos
 
-Variables relacionadas con:
+Los datos **no evidencian una relación clara y consistente** entre el PIB per cápita y los niveles de congestión o tiempos de viaje.
 
-Índice de congestión.
-Tiempo de viaje.
-Tiempo perdido en tráfico.
-Indicadores de movilidad urbana.
-Ciudad.
-Año.
-💰 Desarrollo económico
+Un ejemplo es **Montevideo**, que presenta uno de los PIB per cápita más altos y, simultáneamente, uno de los menores niveles de congestión. En contraste, **Ciudad de México** presenta un PIB per cápita elevado, pero registra el mayor nivel de congestión entre las ciudades analizadas.
 
-Variables relacionadas con:
+Esto indica que **el nivel de desarrollo económico por sí solo no permite explicar las condiciones de movilidad urbana**.
 
-PIB.
-PIB per cápita.
-País.
-Ciudad.
-Año.
+### 🇧🇷 Patrón destacado en Brasil
 
-La unidad principal de análisis será ciudad–año, permitiendo comparar las condiciones de movilidad y económicas correspondientes al mismo periodo.
+Las ciudades brasileñas muestran un comportamiento particularmente interesante. **Curitiba, Fortaleza, Belo Horizonte, Brasilia, Porto Alegre, Recife y Salvador** combinan un desempeño económico relativamente favorable con bajos niveles de `jams_delay`.
 
-Fuente de los datos: [Agregar fuente]
+Sin embargo, Brasil concentra una gran proporción de las observaciones del conjunto de datos, por lo que este patrón podría estar **sobrerrepresentado**. Se requiere un análisis estadístico adicional para determinar si existe una relación significativa.
 
-🧹 Preparación y limpieza de datos
+### ⚠️ Outliers y casos particulares
 
-Antes del análisis se realiza un proceso de preparación de los datasets que incluye:
+Se identificaron ciudades con comportamientos diferentes al patrón general. Estos casos podrían estar relacionados con factores estructurales como:
 
-Revisión de tipos de datos.
-Estandarización de nombres de columnas.
-Normalización de formatos.
-Tratamiento de valores ausentes.
-Identificación de valores duplicados.
-Revisión de valores inconsistentes.
-Identificación de posibles valores atípicos.
-Estandarización de nombres de ciudades y países.
+* Densidad urbana.
+* Infraestructura vial.
+* Transporte público.
+* Población.
+* Características territoriales.
+* Diferencias en las fuentes y metodologías de medición.
 
-Posteriormente, los datos de movilidad son agregados a nivel de ciudad–año para obtener una estructura compatible con los indicadores económicos.
+## 🏙️ Priorización para infraestructura
 
-🔗 Integración de los datos
+A partir de los indicadores analizados, **Montevideo** aparece como una ciudad con potencial para evaluar inversiones en infraestructura de transporte. Su combinación de **alto PIB per cápita y baja congestión** podría representar una oportunidad para fortalecer su movilidad y aprovechar las condiciones existentes.
 
-Para combinar la información de movilidad y desarrollo económico se utiliza una unión INNER.
+Sin embargo, el análisis también demuestra que **el tráfico por sí solo no explica el desarrollo económico**. Por esta razón, una decisión de inversión debería incorporar variables adicionales antes de establecer una prioridad definitiva.
 
-La integración se realiza utilizando las claves correspondientes a:
+## 💡 Recomendaciones
 
-Ciudad + Año
+* Analizar con mayor profundidad las ciudades con niveles elevados de congestión.
+* Validar la calidad, cobertura y metodología de las fuentes utilizadas.
+* Incorporar variables como población, densidad urbana, transporte público e infraestructura vial.
+* Calcular coeficientes de correlación y pruebas de significancia estadística.
+* Comparar los resultados entre países para evitar que un país con mayor cantidad de registros domine las conclusiones.
 
-Esto permite trabajar únicamente con observaciones que cuentan con información disponible en ambas fuentes.
+> ⚠️ **Importante:** una correlación no implica causalidad. Los resultados encontrados representan asociaciones observadas en los datos de 2024 y no demuestran que la congestión cause una menor productividad económica.
 
-La estructura final permite analizar conjuntamente:
+## 🛠️ Tecnologías
 
-Ciudad
-   │
-   ├── Año
-   │
-   ├── Indicadores de tráfico
-   │
-   ├── Tiempos de viaje
-   │
-   └── PIB per cápita
-🔎 Metodología
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Google Colab
 
-El análisis se desarrolla en las siguientes etapas:
+## 📌 Habilidades demostradas
 
-1. Exploración inicial
+* Limpieza y transformación de datos.
+* Integración de datasets mediante `INNER JOIN`.
+* Agregación por ciudad–año.
+* Análisis exploratorio de datos (EDA).
+* Análisis de correlaciones.
+* Identificación de outliers.
+* Visualización de datos.
+* Interpretación de indicadores económicos.
+* Comunicación de insights y recomendaciones.
 
-Se revisan:
+## 👤 Autor
 
-Dimensiones de los datasets.
-Tipos de variables.
-Valores faltantes.
-Distribuciones.
-Estadísticas descriptivas.
-2. Limpieza y estandarización
-
-Se preparan los datos para garantizar consistencia entre las fuentes.
-
-3. Agregación
-
-Los indicadores de movilidad se consolidan por:
-
-Ciudad – Año
-
-4. Integración
-
-Se realiza una unión INNER entre los datos de movilidad y economía.
-
-5. Análisis exploratorio
-
-Se estudian las distribuciones, tendencias y diferencias entre ciudades.
-
-6. Análisis de correlación
-
-Se analiza la relación entre:
-
-Congestión ↔ PIB per cápita
-Tiempo de viaje ↔ PIB per cápita
-Congestión ↔ Tiempo de viaje
-
-La correlación se utilizará para identificar relaciones estadísticas, no para afirmar causalidad.
-
-7. Identificación de outliers
-
-Se investigan ciudades o periodos que presenten comportamientos significativamente diferentes al patrón general.
-
-8. Priorización
-
-Finalmente, se identifican ciudades que combinen:
-
-Alta congestión.
-Elevados tiempos de viaje.
-Bajo PIB per cápita relativo.
-Una relación estadística relevante.
-
-Estas ciudades serán consideradas como posibles candidatas para análisis adicional y priorización de inversión en transporte.
-
-📈 Validación visual
-
-Para validar los resultados se utilizarán diferentes visualizaciones:
-
-Histogramas para analizar distribuciones.
-Boxplots para identificar valores atípicos.
-Gráficos de dispersión para analizar relaciones entre variables.
-Líneas de tendencia para observar patrones.
-Gráficos temporales para analizar evolución.
-Matrices de correlación para identificar relaciones entre indicadores.
-
-En particular, los gráficos de dispersión permitirán evaluar visualmente si existe una relación entre congestión y PIB per cápita.
-
-📋 Cobertura del análisis
-Característica	Valor
-Periodo analizado	[AÑO INICIAL – AÑO FINAL]
-Número de ciudades	[N]
-Número de países	[N]
-Unidad de análisis	Ciudad – Año
-Indicador económico principal	PIB per cápita
-Indicadores de movilidad	Congestión / tiempos de viaje
-
-Estos valores se actualizarán una vez finalizada la preparación de los datos.
-
-💡 Hallazgos
-Patrones principales
-
-Esta sección se completará después de ejecutar el análisis.
-
-Se documentarán los principales patrones encontrados entre los indicadores de movilidad y el PIB per cápita.
-
-Outliers
-
-Se identificarán ciudades o periodos que presenten comportamientos inusuales, por ejemplo:
-
-Alta congestión con PIB per cápita elevado.
-Alta congestión con PIB per cápita bajo.
-Baja congestión con PIB per cápita elevado.
-Valores extremos en tiempos de viaje.
-
-Estos casos podrán requerir una revisión adicional de las fuentes o un análisis más profundo de factores como población, infraestructura, densidad urbana y transporte público.
-
-🏙️ Priorización de ciudades
-
-Uno de los resultados principales del proyecto será determinar qué ciudad presenta el patrón más relevante de:
-
-Alta congestión + bajo PIB per cápita
-
-La ciudad seleccionada será determinada a partir de la evidencia disponible en los datos y no únicamente por comparación visual.
-
-La recomendación final tendrá en cuenta:
-
-Magnitud de la congestión.
-Nivel de PIB per cápita.
-Relación estadística entre ambas variables.
-Consistencia del patrón.
-Presencia de posibles valores atípicos.
-Calidad y disponibilidad de los datos.
-⚠️ Importante
-
-Una correlación negativa entre congestión y PIB per cápita no demuestra que la congestión cause menor productividad económica. El resultado debe interpretarse como una asociación que puede justificar investigaciones posteriores.
-
-🚀 Recomendaciones
-
-A partir de los resultados se plantearán recomendaciones orientadas a:
-
-Identificar ciudades que deberían estudiarse con mayor profundidad.
-Priorizar posibles inversiones en infraestructura de transporte.
-Validar las fuentes de datos cuando existan anomalías.
-Incorporar variables adicionales que puedan explicar las diferencias observadas.
-Realizar análisis temporales para determinar si las relaciones se mantienen a lo largo del tiempo.
-
-Entre las posibles variables adicionales para futuras investigaciones se encuentran:
-
-Población.
-Densidad urbana.
-Ingreso promedio.
-Transporte público.
-Longitud de la red vial.
-Tasa de motorización.
-Desempleo.
-Inversión pública en infraestructura.
-🛠️ Tecnologías utilizadas
-Python
-Pandas — limpieza, transformación y análisis de datos.
-NumPy — operaciones numéricas.
-Matplotlib — visualización.
-Seaborn — visualización estadística.
-Jupyter Notebook — desarrollo y documentación del análisis.
-
-📌 Habilidades demostradas
-
-Este proyecto demuestra habilidades en:
-
-Análisis exploratorio de datos (EDA).
-Limpieza y transformación de datos.
-Integración de datasets.
-Agregación de datos por ciudad–año.
-Análisis estadístico descriptivo.
-Análisis de correlaciones.
-Identificación de outliers.
-Visualización de datos.
-Análisis de indicadores económicos.
-Interpretación de resultados.
-Comunicación de insights.
-Python para análisis de datos.
-Pandas.
-Matplotlib.
-Seaborn.
-
-👤 Autor
-Jair Alejandro
-
+**Loky**
 Data Analyst | Python | SQL | Data Visualization
-Este proyecto forma parte de mi portafolio de análisis de datos y busca demostrar cómo utilizar datos para analizar problemas urbanos y económicos y convertir los resultados en información útil para la toma de decisiones.
+
+Proyecto desarrollado como parte de mi portafolio de análisis de datos.
