@@ -99,7 +99,7 @@ Sin embargo, el análisis también demuestra que **el tráfico por sí solo no e
 
 ## 👤 Autor
 
-**Loky**
+**Jair Forero**
 Data Analyst | Python | SQL | Data Visualization
 
 Proyecto desarrollado como parte de mi portafolio de análisis de datos.
