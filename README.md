@@ -1,105 +1,38 @@
-# 🚦 Análisis de Tráfico y Desarrollo Económico
+🚦 Urban Traffic & Economic Development Analysis
 
-## 📊 Descripción
+"Python" (https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+"Pandas" (https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+"NumPy" (https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+"Matplotlib" (https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white)
+"Seaborn" (https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white)
 
-Este proyecto analiza la relación entre la **movilidad urbana** y la **productividad económica**, utilizando indicadores de congestión, tiempos de viaje y **PIB per cápita** de 15 ciudades de América Latina durante 2024.
+🎯 Project Overview
 
-### 🎯 Pregunta principal
+Does urban traffic congestion relate to a city's economic productivity?
 
-> **¿Qué relación existe entre la congestión y los tiempos de viaje y la productividad económica de una ciudad, medida mediante el PIB per cápita?**
+This project analyzes traffic congestion, travel times, and GDP per capita across 15 Latin American cities in 2024 to explore the relationship between urban mobility and economic development.
 
-El análisis busca identificar patrones que puedan aportar información para la **planificación urbana y la toma de decisiones sobre infraestructura y transporte**.
+Using Python, Pandas, NumPy, Matplotlib, and Seaborn, I performed data cleaning, dataset integration, exploratory data analysis (EDA), outlier detection, and data visualization to identify patterns and generate insights relevant to urban planning and infrastructure decisions.
 
-## 🔗 Análisis en Google Colab
+📈 Key Findings
 
-👉 **[Abrir análisis completo en Google Colab]([https://drive.google.com/file/d/12n1YDX1z2cLfxLnfoVdftz1QF2uq4hTl/view?usp=sharing](https://colab.research.google.com/drive/12n1YDX1z2cLfxLnfoVdftz1QF2uq4hTl#scrollTo=20efc079))**
+- No clear, consistent relationship was observed between GDP per capita and traffic congestion across the cities analyzed.
+- Montevideo combined relatively high GDP per capita with low congestion, while Mexico City showed high GDP per capita alongside the highest congestion levels in the sample.
+- Brazilian cities displayed an interesting pattern of relatively favorable economic indicators and low traffic delay measurements, although the unequal representation of countries requires further investigation.
 
-## 🗃️ Datos
+🛠️ Skills Demonstrated
 
-Se integraron dos dimensiones:
+- Data Cleaning and Transformation
+- Data Integration using SQL-style "INNER JOIN" operations
+- Data Aggregation by City and Year
+- Exploratory Data Analysis (EDA)
+- Statistical Analysis and Correlation
+- Outlier Detection
+- Data Visualization
+- Business Insights and Analytical Recommendations
 
-* 🚗 **Movilidad urbana:** congestión, tiempos de viaje, longitud y cantidad de atascos y `jams_delay`.
-* 💰 **Desarrollo económico:** PIB per cápita.
+💡 Business Value
 
-El análisis comprende **15 ciudades de América Latina** durante 2024, utilizando **ciudad y año** como unidad de integración.
+The analysis demonstrates how combining urban mobility and economic indicators can help identify patterns, investigate unusual cases, and guide further research into transportation infrastructure and urban development.
 
-## 🔎 Metodología
-
-1. Limpieza y estandarización de las variables.
-2. Conversión de fechas y variables numéricas.
-3. Agregación de los datos de tráfico por **ciudad, país y año**.
-4. Integración de las fuentes mediante un **INNER JOIN** utilizando `city` y `year`.
-5. Análisis exploratorio de distribuciones y valores atípicos.
-6. Visualización de la relación entre movilidad y PIB per cápita.
-7. Interpretación de patrones y posibles ciudades prioritarias.
-
-Se utilizaron histogramas, gráficos de dispersión y análisis de outliers para validar visualmente los resultados.
-
-## 📈 Principales hallazgos
-
-Los datos **no evidencian una relación clara y consistente** entre el PIB per cápita y los niveles de congestión o tiempos de viaje.
-
-Un ejemplo es **Montevideo**, que presenta uno de los PIB per cápita más altos y, simultáneamente, uno de los menores niveles de congestión. En contraste, **Ciudad de México** presenta un PIB per cápita elevado, pero registra el mayor nivel de congestión entre las ciudades analizadas.
-
-Esto indica que **el nivel de desarrollo económico por sí solo no permite explicar las condiciones de movilidad urbana**.
-
-### 🇧🇷 Patrón destacado en Brasil
-
-Las ciudades brasileñas muestran un comportamiento particularmente interesante. **Curitiba, Fortaleza, Belo Horizonte, Brasilia, Porto Alegre, Recife y Salvador** combinan un desempeño económico relativamente favorable con bajos niveles de `jams_delay`.
-
-Sin embargo, Brasil concentra una gran proporción de las observaciones del conjunto de datos, por lo que este patrón podría estar **sobrerrepresentado**. Se requiere un análisis estadístico adicional para determinar si existe una relación significativa.
-
-### ⚠️ Outliers y casos particulares
-
-Se identificaron ciudades con comportamientos diferentes al patrón general. Estos casos podrían estar relacionados con factores estructurales como:
-
-* Densidad urbana.
-* Infraestructura vial.
-* Transporte público.
-* Población.
-* Características territoriales.
-* Diferencias en las fuentes y metodologías de medición.
-
-## 🏙️ Priorización para infraestructura
-
-A partir de los indicadores analizados, **Montevideo** aparece como una ciudad con potencial para evaluar inversiones en infraestructura de transporte. Su combinación de **alto PIB per cápita y baja congestión** podría representar una oportunidad para fortalecer su movilidad y aprovechar las condiciones existentes.
-
-Sin embargo, el análisis también demuestra que **el tráfico por sí solo no explica el desarrollo económico**. Por esta razón, una decisión de inversión debería incorporar variables adicionales antes de establecer una prioridad definitiva.
-
-## 💡 Recomendaciones
-
-* Analizar con mayor profundidad las ciudades con niveles elevados de congestión.
-* Validar la calidad, cobertura y metodología de las fuentes utilizadas.
-* Incorporar variables como población, densidad urbana, transporte público e infraestructura vial.
-* Calcular coeficientes de correlación y pruebas de significancia estadística.
-* Comparar los resultados entre países para evitar que un país con mayor cantidad de registros domine las conclusiones.
-
-> ⚠️ **Importante:** una correlación no implica causalidad. Los resultados encontrados representan asociaciones observadas en los datos de 2024 y no demuestran que la congestión cause una menor productividad económica.
-
-## 🛠️ Tecnologías
-
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Google Colab
-
-## 📌 Habilidades demostradas
-
-* Limpieza y transformación de datos.
-* Integración de datasets mediante `INNER JOIN`.
-* Agregación por ciudad–año.
-* Análisis exploratorio de datos (EDA).
-* Análisis de correlaciones.
-* Identificación de outliers.
-* Visualización de datos.
-* Interpretación de indicadores económicos.
-* Comunicación de insights y recomendaciones.
-
-## 👤 Autor
-
-**Jair Forero**
-Data Analyst | Python | SQL | Data Visualization
-
-Proyecto desarrollado como parte de mi portafolio de análisis de datos.
+Note: The findings represent observed associations in the 2024 dataset. They do not establish causality or provide sufficient evidence to determine infrastructure investment priorities independently.
