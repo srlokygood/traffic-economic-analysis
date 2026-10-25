@@ -8,8 +8,6 @@ I compared congestion, travel times, and GDP per capita across 15 Latin American
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white)
 ![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white)
 
-![Main chart: GDP per capita vs. congestion](images/gdp_vs_congestion.png)
-
 ## Business Question
 
 Does urban traffic congestion relate to a city's economic productivity? Answering this helps urban planners and infrastructure decision-makers judge whether economic development and mobility problems move together, and which unusual cases deserve further study.
@@ -30,8 +28,6 @@ Does urban traffic congestion relate to a city's economic productivity? Answerin
 ```python
 # [MISSING: 1-2 representative code snippets, e.g. the merge and the correlation]
 ```
-
-![Data model / workflow](images/workflow.png)
 
 ## Findings
 
